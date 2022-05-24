@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>informasi kegempaan</title>
+</head>
+<body>
+
+	<div id="infogempa"><img src="fto.png"></div>
+
+	<script>
+		cons jsp = new XMLHttpRequest()
+		jsp.open("GET","https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json")
+		jsp.send()
+
+		jsp.onload()= function(){
+			const myObj = JSON.parse(this.responseText)
+			let tx = myObj["Infogempa"]["gempa"]
+			//console.log(tx)
+			tx = "TGL:"+myObj["Infogempa"]["gempa"].Tanggal
+			tx += "<br>Jam:"+myObj["Infogempa"]["gempa"].Jam
+			tx += "<br>Wilayah:"+myObj["Infogempa"]["gempa"].Wilayah
+			tx += "<br>Potensi:"+myObj["Infogempa"]["gempa"].Potensi
+			tx += "<br>Magnitude:"+myObj["Infogempa"]["gempa"].Magnitude
+			tx += "<br>Kedalaman:"+myObj["Infogempa"]["gempa"].Kedalaman
+
+			document.getElementById("infogempa") = tx
+		}
+	</script>
+	
+</body>
+</html>

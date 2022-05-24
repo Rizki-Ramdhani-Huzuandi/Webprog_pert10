@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Form isian HTML</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+	<form name="frm01" id="frm01" method="get" action="terimadata.php" onsubmit="return checkform(this)">
+		Nama<br>
+		<input type="text" name="txnama" class="form-control"><br><br>
+		Jenis kelamin<br>
+		<input type="radio" name="txjk" value="laki">laki-laki
+		<input type="radio" name="txjk" value="perempuan">Perempuan<br><br>
+		Tanggal Lahir<br>
+		<input type="date" name="txtglahir"><br><br>
+		Agama<br>
+		<select>
+			<option value="islam"> islam</option>
+			<option value="kristen"> kristen</option>
+			<option value="katholik"> katholik</option>
+			<option value="hindu"> hindu</option>
+			<option value="budha"> budha</option>
+			<option value="islam"> islam</option>
+			<option value="lain"> lain..</option>
+		</select><br><br>
+		Hobi<br>
+		<input type="checkbox" name="hobi1">Futsal 
+		<input type="checkbox" name="hobi2">Menari
+		<input type="checkbox" name="hobi3">game
+		<input type="checkbox" name="hobi4">Renang
+		<br><br>
+		<button name="cmdtombol1" type="submit">kirim data</button>
+		<input type="reset" name="cmdtombol2" value="kosongkan form">
+	</form>
+</div>
+
+<script>
+	function checkform(form){
+		let frm = form.elements
+		let nama = frm.namedItem("txnama").value
+		let jkel = frm.namedItem("txjk").value
+		let hobi1 = [
+		frm.namedItem("hoby1").checked,
+		frm.namedItem("hoby2").checked,
+		frm.namedItem("hoby3").checked,
+		frm.namedItem("hoby4").checked,
+			]
+
+
+		console.log(nama)
+		console.log(jkel)
+
+		return false
+	}
+</script>
+</body>
+</html>
